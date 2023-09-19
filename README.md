@@ -3,7 +3,6 @@
 This project demonstrates batch processing with PySpark using docker which contains the following containers.
 
 ## Table of Contents
-- [Architecture](#architecture)
 - [Dataset](#dataset)
 - [How to run](#how-to-run)
 - [Docker setup troubleshooting](#troubleshooting)
@@ -11,7 +10,6 @@ This project demonstrates batch processing with PySpark using docker which conta
 - [Analysis result](#analysis-result)
 
 
-## Architecture
 
 ## Dataset
 The dataset used in this project is `online-retail-dataset` which is from UCI Machine Learning Repository.
@@ -99,11 +97,20 @@ Here, the retail dataset is enriched by adding `is_cancelled` column to make it 
 
 ### Data Cleaning
 For the data cleaning, after checking the datasets, there are some interesting things:
+- Quantity has negative values.
+- Only cancelled transaction has negative value on quantity. This might suggest that negative value quantities means returned products due to cancelled transactions.
+- Transaction with negative quantity has description which is not the name of the product, but something that might describe why the item is returned.
+- There are transactions of product with 0 unit price. This might be a bonus from a certain transaction or something.
+- There is a unit price with negative value.
+- There are customers without customerId (Null).
+- There are Null descriptions and all transaction with Null description has Null customerId (Ghost customers).
+- There is no Null in other columns.
 
+Based on those informations, the cleaning is done by removing all rows Null customerId first because those rows cannot be used for more exploration like by joining with another datasets and cannot be used for finding rate related metrics which measure the performance of customers. Transactions with 0 unit price is also removed because it does not add any valuable insight in customers or the company's performance analysis. After removing those two, surprisingly transactions with unit price of negative value is already removed. Here is the result of data cleaning:
 ![Cleaned Retail](/img/postgres-retail-cleaned.png)
 
-
 ### Completion Rate
+
 ![Cleaned Retail](/img/postgres-completion-rate.png)
 ### Monthly Churn Rate
 ![Cleaned Retail](/img/postgres-churn-rate.png)
