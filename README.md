@@ -5,7 +5,7 @@ This project demonstrates batch processing with PySpark using docker which conta
 ## Table of Contents
 - [Dataset](#dataset)
 - [How to run](#how-to-run)
-- [Docker setup troubleshooting](#troubleshooting)
+- [Docker troubleshooting](#docker-troubleshooting)
 - [Spark Scripts](#sparkscripts)
 - [Analysis result](#analysis-result)
 
@@ -68,7 +68,7 @@ The dataset is a real online retail transaction dataset about a UK-based non-sto
     ![make postgres3](/img/connect-postgres-3.png)
 
 
-## Docker Setup Troubleshooting
+## Docker Troubleshooting
 ### `make airflow` error because of `entrypoint.sh`
 This error happens because `entrypoint.sh` cannot be detected at the specified path. 
     ![entrypoint1](/img/entrypoint-error-in-CRLF.png)
@@ -76,6 +76,29 @@ There are many possible solutions, one of the solution is to open the `entrypoin
     ![entrypoint2](/img/entrypoint-error-in-CRLF-2.png)
     ![entrypoint3](/img/entrypoint-error-in-CRLF-3.png)
 Then either run `make airflow` again or restart the setup from `make docker-build` again should solve the problem.
+
+### `dataeng-network already exist` when `make docker-build`
+The solution is quite simple, run `docker network rm network-name`:
+```console
+docker network rm dataeng-network
+```
+You can also check the lists of network already created by running:
+```console
+docker network ls
+```
+Another useful command: `docker network prune` to delete all networks created in docker environment.
+After deleting the network, you can start again from `make docker-build`.
+
+### Device becomes so laggy or BSOD occurs when running docker.
+If after running the script with docker many times and then you suddenly experiencing BSOD often occurs when starting docker or device becomes so laggy then maybe it is occured because docker is using too much diskspace.
+ ![load](/img/docker-disk-space.png)
+
+The following command can help you free up some device and fix the problem:
+```console
+docker object prune 
+```
+change the `object` to `image`, `system`, `container`, or `volumes` to prune the unused docker objects and free up some diskspaces. You can check the documentation [here](https://docs.docker.com/config/pruning/).
+
 ## Spark Scripts
 The structure of the Spark Scripts folder is like this.
 - spark-scripts
@@ -119,13 +142,13 @@ Based on those informations, the cleaning is done by removing all rows Null cust
 ### Completion Rate
 
 Here, completion rate is a metric that measure the performance of the online retail company to make succesful transaction in each country. The value is calculated by finding the ratio of succesful transaction to total transaction (cancelled transactions included).
-![Cleaned Retail](/img/postgres-completion-rate.png)
+![completion rate](/img/postgres-completion-rate.png)
 
 Surprisingly, there are about 9 countries in UK in which the company does not experience cancelled transactions. It might be because the products offered by the online retail company, which are unique all-occasion gift-wares, match the preference of people from those countries.
 
 ### Monthly Churn Rate
 Here, the monthly churn rate is calculated to measure the performance of the company's customers in each month. The churn rate is a rate of customers who stop subscribing or doing transaction on the online retail company which is calculated in a period of time (in this case, monthly).  In calculating churn rate, the data is filtered from cancelled transactions to avoid misinterpretation of customers with cancelled transactions as a churned customers or customers who stop subscribing or doing transactions. The difference is actually that cancellation can be reversed (the customers might want to do transaction without cancelling this time), but churn is forever.
-![Cleaned Retail](/img/postgres-churn-rate.png)
+![Churn rate](/img/postgres-churn-rate.png)
 Obviously the lower the churn rate, the better. Here, the churn rate of each months hit the lowest value at the first two months, and then increasing and fluctuating around 30 and 40 for a couple of months later. 
 
 
