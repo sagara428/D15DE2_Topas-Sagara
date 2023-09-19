@@ -13,7 +13,7 @@ This project demonstrates batch processing with PySpark using docker which conta
 
 ## Dataset
 The dataset used in this project is `online-retail-dataset` which is from UCI Machine Learning Repository.
-The dataset is a real online retail transaction dataset about a UK-based non-store online retail which mainly sells unique all-occasion gift-ware.
+The dataset is a real online retail transaction dataset about a UK-based non-store online retail company which mainly sells unique all-occasion gift-ware.
 
 ### Dataset Information
 
@@ -111,8 +111,12 @@ Based on those informations, the cleaning is done by removing all rows Null cust
 
 ### Completion Rate
 
+Here, completion rate is a metric that measure the performance of the online retail company to make succesful transaction in each country. The value is calculated by finding the ratio of succesful transaction to total transaction (cancelled transactions included).
 ![Cleaned Retail](/img/postgres-completion-rate.png)
+Surprisingly, there are about 9 countries in UK in which the company does not experience cancelled transactions. It might be because the products offered by the online retail company, which are unique all-occasion gift-wares, match the preference of people from those countries.
+
 ### Monthly Churn Rate
+In calculating churn rate, the data is filtered from cancelled transactions to avoid misinterpretation of customers with cancelled transactions as a churned customers.
 ![Cleaned Retail](/img/postgres-churn-rate.png)
 
 
