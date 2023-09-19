@@ -101,9 +101,9 @@ If after running the script with docker many times and then you suddenly experie
 
 The following command can help you free up some device and fix the problem:
 ```console
-docker object prune 
+docker object_name prune 
 ```
-change the `object` to `image`, `system`, `container`, or `volumes` to prune the unused docker objects and free up some diskspaces. You can check the documentation [here](https://docs.docker.com/config/pruning/).
+change the `object_name` to `image`, `system`, `container`, or `volumes` to prune the unused docker objects and free up some diskspaces. You can check the documentation [here](https://docs.docker.com/config/pruning/).
 
 ## Spark Scripts
 The structure of the Spark Scripts folder is like this.
