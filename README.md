@@ -120,6 +120,7 @@ Based on those informations, the cleaning is done by removing all rows Null cust
 
 Here, completion rate is a metric that measure the performance of the online retail company to make succesful transaction in each country. The value is calculated by finding the ratio of succesful transaction to total transaction (cancelled transactions included).
 ![Cleaned Retail](/img/postgres-completion-rate.png)
+
 Surprisingly, there are about 9 countries in UK in which the company does not experience cancelled transactions. It might be because the products offered by the online retail company, which are unique all-occasion gift-wares, match the preference of people from those countries.
 
 ### Monthly Churn Rate
