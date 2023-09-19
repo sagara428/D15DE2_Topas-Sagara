@@ -54,15 +54,17 @@ The dataset is a real online retail transaction dataset about a UK-based non-sto
     `make spark`
 
     ![Make Spark](/img/make-spark.png)
-    `make airflow`
+
+   `make airflow`
     ![Make Airflow](/img/make-airflow.png)
  
-5. Wait until the airflow setup is already, then access airflow Webserver UI in your web browser access: `localhost:8081`
+6. Wait until the airflow setup is already, then access airflow Webserver UI in your web browser access: `localhost:8081`
     ![airflow home](/img/airflow-home.png)
-    then run the dag by manually trigger it with clicking the small play button at the top right of the UI.
+
+   then run the dag by manually trigger it with clicking the small play button at the top right of the UI.
     ![airflow dag](/img/aiflow-dag.png)
 
-6. Since the result of the task is loading a dataset / table into postgreSQL, you can check the table by connecting postgreSQL database we made by using Dbeaver. You can check the postgres setup at `.env `file. 
+8. Since the result of the task is loading a dataset / table into postgreSQL, you can check the table by connecting postgreSQL database we made by using Dbeaver. You can check the postgres setup at `.env `file. 
     ![make postgres1](/img/connect-postgres-1.png)
     ![make postgres2](/img/connect-postgres-2.png)
     ![make postgres3](/img/connect-postgres-3.png)
