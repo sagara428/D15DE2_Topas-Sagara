@@ -56,6 +56,7 @@ The dataset is a real online retail transaction dataset about a UK-based non-sto
     ![Make Spark](/img/make-spark.png)
 
    `make airflow`
+   
     ![Make Airflow](/img/make-airflow.png)
  
 6. Wait until the airflow setup is already, then access airflow Webserver UI in your web browser access: `localhost:8081`
