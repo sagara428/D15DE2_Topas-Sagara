@@ -116,7 +116,8 @@ Here, completion rate is a metric that measure the performance of the online ret
 Surprisingly, there are about 9 countries in UK in which the company does not experience cancelled transactions. It might be because the products offered by the online retail company, which are unique all-occasion gift-wares, match the preference of people from those countries.
 
 ### Monthly Churn Rate
-Here, the monthly churn rate is calculated to measure the performance of the company's customers in each month. The churn rate is a rate of customers who stop subscribing or doing transaction on the online retail company which is calculated in a period of time (in this case, monthly).  In calculating churn rate, the data is filtered from cancelled transactions to avoid misinterpretation of customers with cancelled transactions as a churned customers or customers who stop subscribing or doing transactions.
+Here, the monthly churn rate is calculated to measure the performance of the company's customers in each month. The churn rate is a rate of customers who stop subscribing or doing transaction on the online retail company which is calculated in a period of time (in this case, monthly).  In calculating churn rate, the data is filtered from cancelled transactions to avoid misinterpretation of customers with cancelled transactions as a churned customers or customers who stop subscribing or doing transactions. The difference is actually that cancellation can be reversed (the customers might want to do transaction without cancelling this time), but churn is forever.
 ![Cleaned Retail](/img/postgres-churn-rate.png)
+Obviously the lower the churn rate, the better. Here, the churn rate of each months hit the lowest value at the first two months, and then increasing and fluctuating around 30 and 40 for a couple of months later. 
 
 
