@@ -96,6 +96,7 @@ After deleting the network, you can start again from `make docker-build`.
 
 ### Device becomes so laggy or BSOD occurs when running docker.
 If after running the script with docker many times and then you suddenly experiencing BSOD often occurs when starting docker or device becomes so laggy then maybe it is occured because docker is using too much diskspace.
+
  ![load](/img/docker-disk-space.png)
 
 The following command can help you free up some device and fix the problem:
