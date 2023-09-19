@@ -72,9 +72,11 @@ The dataset is a real online retail transaction dataset about a UK-based non-sto
 ### `make airflow` error because of `entrypoint.sh`
 This error happens because `entrypoint.sh` cannot be detected at the specified path. 
     ![entrypoint1](/img/entrypoint-error-in-CRLF.png)
-There are many possible solutions, one of the solution is to open the `entrypoint.sh` at VSCode then change the encoding to UTF-8 if it is not and try to change the end line sequence from CRLF to LF and save the changes. 
+    
+There are some possible solutions, one of the solution is to open the `entrypoint.sh` at VSCode then change the encoding to UTF-8 if it is not and try to change the end line sequence from CRLF to LF and save the changes. 
     ![entrypoint2](/img/entrypoint-error-in-CRLF-2.png)
     ![entrypoint3](/img/entrypoint-error-in-CRLF-3.png)
+    
 Then either run `make airflow` again or restart the setup from `make docker-build` again should solve the problem.
 
 ### `dataeng-network already exist` when `make docker-build`
