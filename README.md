@@ -88,8 +88,15 @@ The structure of the Spark Scripts folder is like this.
   - jar
     - postgresql-42.6.0.jar
 
-The jar file is to help spark connect to postgreSQL.
-
+- The jar file is to help spark connect to postgreSQL.
+- Here is the description on `main.py`: 
+    ![main](/img/main.png)
+- Here is the description on `extract.py`:
+    ![extract](/img/extract.png)
+- Here is the description on `transform.py`:
+    ![transform](/img/transform.png)
+- Here is the description on `load.py`:
+    ![load](/img/load.png)
 
 ## ETL Result
 ### Adding `is_cancelled` Column
