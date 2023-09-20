@@ -6,8 +6,8 @@ This project demonstrates batch processing with PySpark using docker which conta
 - [Dataset](#dataset)
 - [How to run](#how-to-run)
 - [Docker troubleshooting](#docker-troubleshooting)
-- [Spark Scripts](#sparkscripts)
-- [Analysis result](#analysis-result)
+- [Spark Scripts](#spark-scripts)
+- [Analysis result](#etl-result)
 
 
 
