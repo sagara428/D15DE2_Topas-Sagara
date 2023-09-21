@@ -80,7 +80,7 @@ There are some possible solutions, one of the solution is to open the `entrypoin
     ![entrypoint2](/img/entrypoint-error-in-CRLF-2.png)
     ![entrypoint3](/img/entrypoint-error-in-CRLF-3.png)
     
-Then restart the setup from `make docker-build` again should solve the problem.
+Then restarting the setup from `make docker-build` again should solve the problem.
 
 ### `dataeng-network already exist` when `make docker-build`
 The solution is quite simple, run `docker network rm network-name`:
