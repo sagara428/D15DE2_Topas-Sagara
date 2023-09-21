@@ -1,6 +1,6 @@
 # Batch Processing with PySpark
 
-This project demonstrates batch processing with PySpark using docker which contains the following containers.
+This project demonstrates batch processing with PySpark using docker.
 
 ## Table of Contents
 - [Dataset](#dataset)
